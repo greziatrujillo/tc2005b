@@ -1,9 +1,102 @@
 body {
-  background-color: lightblue;
+  background-color: rgba(250, 250, 250, 0.951);
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 h1 {
-  color: navy;
   margin-left: 20px;
+}
+
+p {
+  font-size: 15px;
+}
+
+a:link {
+  text-decoration: none;
+  color:black;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ol {
+  text-align: left;
+  display: inline-block;
+  margin-left: 20px;
+  line-height: 1.5em;
+}
+
+header {
+  background-color: rgba(251, 159, 159, 0.873);
+  padding: 20px;
+  text-align: center;
+  overflow: auto;
+  border-radius: 15px;
+}
+
+footer {
+  background-color: rgba(251, 159, 159, 0.873);
+  padding: 10px;
+  text-align: center;
+  overflow: auto;
+  border-radius: 15px;
+}
+
+.about-section {
+  background-color: #f0f0e8;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 15px 15px 0 rgba(0,0,0,0.1);
+    margin-bottom: 3em;
+}
+
+.questions-html {
+  background-color: #f0f0e8;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 15px 15px 0 rgba(0,0,0,0.1);
+  margin-bottom: 3em;
+
+}
+
+.questions-css {
+  background-color: #f0f0e8;
+  padding: 20px;
+  margin: 20px auto;
+  margin-bottom: 3em;
+  width: 80%;
+  border-radius: 15px;
+  box-shadow:0 15px 15px 0 rgba(0,0,0,0.1);
+}
+
+.button-email {
+  background-color: #94a7ebf6;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.button-email:hover {
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.4);
 }
