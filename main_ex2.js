@@ -13,8 +13,17 @@ function generateSum() {
     const time = Date.now();
 
     //Prompt user for answer
+    const answer = prompt ('Responde la suma: ' + num1 + ' + ' + num2);
+
+    //Final time taken
+    const finalTime = Date.now() - time;
 
     //answer is correct or incorrect with time taken to answer
+    if (answer == correct) {
+        alert('Correcto! Tiempo tomado en responder: ' + finalTime / 1000 + ' segundos');
+    } else {
+        alert('Incorrecto! La respuesta correcta es: ' + correct);
+    }
 
 
 }
