@@ -1,3 +1,12 @@
-//JS lab file exercise 2
+//JS lab file exercise 3
 
-//2. Generate random sum
+//3. Generate counter to identify properties of numbers 
+
+function counter() {
+
+
+
+
+
+    
+}
