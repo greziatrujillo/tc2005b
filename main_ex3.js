@@ -30,6 +30,7 @@ function counterPrint() {
     const result = counter(arrayTest);
 
     document.getElementById("resultCounter").innerHTML = `
+        <p> Arreglo: [${arrayTest.join(", ")}] </p>
         <p> Números negativos: ${result.neg} </p>
         <p> Números ceros: ${result.zero} </p>
         <p> Números positivos: ${result.pos} </p>
