@@ -1,4 +1,4 @@
-//JS lab file exercise 3
+//JS lab exercise 3
 
 //3. Generate counter to identify properties of numbers 
 
