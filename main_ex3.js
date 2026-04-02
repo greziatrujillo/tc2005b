@@ -25,5 +25,14 @@ function counter(array) {
 }
 
     //display on HTML page
+function counterPrint() {
+    const arrayTest = [1, -2, 0, 5, -3, 0, 7];
+    const result = counter(arrayTest);
 
+    document.getElementById("resultCounter").innerHTML = `
+        <p> Números negativos: ${result.neg} </p>
+        <p> Números ceros: ${result.zero} </p>
+        <p> Números positivos: ${result.pos} </p>
+    `;
+}
 
