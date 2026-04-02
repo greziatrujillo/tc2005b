@@ -26,9 +26,15 @@ function counter(array) {
 
     //display on HTML page
 function counterPrint() {
-    const arrayTest = [1, -2, 0, 5, -3, 0, 7];
+    let user = prompt("Ingrese un arreglo de números separados por comas (ejemplo: 1, -2, 0, 5, -3, 0, 7):");
+
+    //convert input from string to array of numbers
+    let arrayTest = user.split(",").map(Number);
+
+    //run through counter function
     const result = counter(arrayTest);
 
+    //print out results on HTML
     document.getElementById("resultCounter").innerHTML = `
         <p> Arreglo: [${arrayTest.join(", ")}] </p>
         <p> Números negativos: ${result.neg} </p>
@@ -36,4 +42,5 @@ function counterPrint() {
         <p> Números positivos: ${result.pos} </p>
     `;
 }
+
 
