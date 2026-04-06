@@ -6,17 +6,79 @@
   </head>
   <body>
     <!-- Content -->
-     <p id="par1">Lorem ipsum dolor sit </p>
-     <p id="par2">Parráfo 2 </p>
+    
+    <!--
+    <p id="par1">Lorem ipsum dolor sit </p>
+     <div id="par2">
+        <p>Parráfo 2 </p>
+     </div>
+    -->
+
+<!--
+    <h1>Películas Famosas</h1>
+    <ul class="list">
+        <li>Titanic</li>
+        <li>Jurassic Park</li>
+        <li>El señor de los Anillos</li>
+        <li>Star Wars</li>
+    </ul>
+  -->
+
+  <!--
+    <h2>Elementos que se utilizan en desarrollo Web:</h2>
+  -->
+     
   </body>
   <script>
     let log = console.log;
     // console.log(document);
 
-    /* Función getElementById */
+    /* Función getElementById 
     let variablePar = document.getElementById("par2");
-    log(variablePar);
+    log(variablePar.innerHTML);
+    */
 
+    /* Función querySelector 
+    const h1Element = document.querySelector('h1');
+    log(h1Element);
+
+    const list = document.querySelectorAll("ul > li");
+    
+    list.forEach((item) => {
+        log(item.textContent);
+    });
+    */
+
+    /* Función createElement 
+
+    let listaSinOrden = document.createElement("ul");
+
+    document.body.appendChild(listaSinOrden);
+
+    let elementoLista1 = document.createElement("li");
+    elementoLista1.textContent = "HTML";
+    listaSinOrden.appendChild(elementoLista1);
+
+    let elementoLista2 = document.createElement("li");
+    elementoLista2.textContent = "CSS";
+    listaSinOrden.appendChild(elementoLista2);
+
+    let elementoLista3 = document.createElement("li");
+    elementoLista3.textContent = "JavaScript";
+    listaSinOrden.appendChild(elementoLista3);
+
+    let newH3 = document.createElement("h3");
+    newH3.textContent = "Hola soy un texto en color negro";
+    document.body.appendChild(newH3);
+
+    const h3 = document.querySelector("h3");
+    h3.style.color = "lightcoral";
+    */
+
+    let newButton = document.createElement("button");
+    newButton.textContent = "Mostrar Alerta";
+    newButton.setAttribute("id", "btn");
+    document.body.appendChild(newButton);
 
   </script>
 </html>
