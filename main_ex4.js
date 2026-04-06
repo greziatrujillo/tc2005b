@@ -24,3 +24,16 @@ function avg(matrix) {
     
 }
 
+//test case
+function testAvg () {
+    const testMatrix = [
+        [10,20,30],
+        [5,10,15],
+        [1,2,3]
+    ];
+
+    const res = avg(testMatrix);
+
+    document.getElementById("resultAvg").innerHTML = 
+    "<p> Average of each row: " + res;
+}
