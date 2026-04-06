@@ -28,13 +28,12 @@ function avg(matrix) {
 function testAvg () {
     const testMatrix = [
         [10,20,30],
-        [5,10,15],
-        [1,2,3]
+        [5,15,25]
     ];
 
     const res = avg(testMatrix);
 
     document.getElementById("resultAvg").innerHTML = 
-    "<p> <b>Test case:</b> [[10,20,30], [5,10,15], [1,2,3]] </p>" +
+    "<p> <b>Test case:</b> [[10,20,30], [5,15,25]] </p>" +
     "<p> Average of each row: " + "[" + res.join(", ") + "]" + "</p>";
 }
