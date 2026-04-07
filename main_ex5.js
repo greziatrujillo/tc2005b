@@ -12,3 +12,9 @@ function inverseDigits(n) {
     return result;
 }
 
+//print the result for user to see
+function testReverse() {
+    var result = inverseDigits();
+    document.getElementById("resultReverse").innerHTML = "The inverse of the number is: " + result;
+}
+
