@@ -17,6 +17,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
+    <button id="toggle-dark" class="btn btn--sm">🌙 Modo oscuro</button>
   </nav>
 
   <!-- Hero -->
@@ -51,10 +52,22 @@
     </div>
   </section>
 
+  
+
   <!-- Footer -->
   <footer id="contact">
     <p>✉️ ada@devcard.io — GitHub: @ada</p>
   </footer>
 
+  <script>
+  const btn = document.getElementById('toggle-dark');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    btn.textContent = document.body.classList.contains('dark')
+      ? '☀️ Modo claro' : '🌙 Modo oscuro';
+  });
+</script>
+
 </body>
 </html>
+
