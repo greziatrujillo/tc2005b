@@ -3,7 +3,7 @@
 //5. Receive a string of digits and return the inverse
 
 function inverseDigits(n) {
-    var num = prompt ("Enter a number: ");
+    var num = prompt ("Ingrese un número: ");
     var result = "";
     for (var i = num.length - 1; i >= 0; i--) {
         result += num[i];
@@ -15,6 +15,6 @@ function inverseDigits(n) {
 //print the result for user to see
 function testReverse() {
     var result = inverseDigits();
-    document.getElementById("resultReverse").innerHTML = "The inverse of the number is: " + result;
+    document.getElementById("resultReverse").innerHTML = "Inverso del número: " + result;
 }
 
