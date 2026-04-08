@@ -2,20 +2,16 @@ let log = console.log;
 
 const fs = require("fs");
 const path = require("path");
-
 const http = require('http');
+
 const server=http.createServer((req, res) => {
 
-    const filePath = path.join(__dirname, "index.html");
+    log(req.url);
+    const filePath = path.join(__dirname,"bootstrap-card.html");
 
     fs.readFile(filePath, (err, content) => {
-        if (err) {
-            res.writeHead(500);
-            res.end("Error loading index.html");
-            return;
-        }
 
-        res.writeHead(200, { "Content-Type": "text/html" });
+        res.writeHead(200, {"content-type": "text/html"});
         res.end(content);
     });
 });
