@@ -3,7 +3,6 @@
 //6. Calculadora de propinas.
 
 //using object oriented programming, there will be use of a class.
-
 class tipCalculator {
     constructor(total, percentage){
         this.total = total;
@@ -30,7 +29,7 @@ function executeCalculation() {
 
     //create an instance of the tipCalculator class
     const calculator = new tipCalculator(totalCost, porcentaje);
-    
+
     const tip = calculator.calculateTip();
 
     //display the result
