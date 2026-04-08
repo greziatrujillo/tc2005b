@@ -1,6 +1,12 @@
 let log = console.log;
 
-log("Hello, world!");
+//creando un servidor
+const http = require("http");
+const server = http.createServer((request, response) =>{ 
+    log("request received");
+});
+
+server.listen(3000);
 
 
 //fs es el modulo que va contener las funciones para 
