@@ -13,6 +13,10 @@ const server=http.createServer((req, res) => {
         </head>
         <body>
         <h1>:3</h1>
+        <javascript>
+        //Mi código Javascript
+        console.log("Hola mundo");
+        </javascript>
         </body>
         </html>
     `);
