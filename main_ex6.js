@@ -18,9 +18,9 @@ class tipCalculator {
 }
 
 //connect the function to the button in the HTML
-function calculateTip() {
+function executeCalculation() {
     const totalCost = document.getElementById("totalCuenta").value;
-    const perc = document.getElementById("propina").value;
+    const porcentaje = document.getElementById("propina").value;
 
     //verify there is an input for the cost
     if (totalCost === "") {
@@ -29,11 +29,12 @@ function calculateTip() {
     }
 
     //create an instance of the tipCalculator class
-    const calculator = new tipCalculator(parseFloat(totalCost), parseFloat(perc));
+    const calculator = new tipCalculator(totalCost, porcentaje);
+    
     const tip = calculator.calculateTip();
 
     //display the result
-    alert(`La propina es de ${tip.toFixed(2)} MXN.`);
+    document.getElementById("resultTip").innerHTML = `La propina es de $${tip.toFixed(2)} MXN.`;
 }
 
 
