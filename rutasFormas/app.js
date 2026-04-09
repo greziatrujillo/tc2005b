@@ -35,6 +35,20 @@ const server = http.createServer((req, res) => {
             res.end();   
             break;
 
+            case "/form_method":
+                if(req.method == "GET"){
+                    const path = require("path");
+                    const fs = require("fs");
+
+                    res.setHeader('Content-Type', 'text/html');
+                    const html = fs.readFileSync(path.join(__dirname, "./form.html"), "utf-8");
+                    res.write(html);
+                    res.end();
+                }
+                else if(req.method == "POST"){
+                }
+                break;
+
             default:
                 res.statusCode = 404;
                 res.setHeader('Content-Type', 'text/html');

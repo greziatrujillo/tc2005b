@@ -6,15 +6,18 @@ const http = require('http');
 
 const server=http.createServer((req, res) => {
 
-    log(req.url);
-    const filePath = path.join(__dirname,"bootstrap-card.html");
+    switch(req.url){
+        case "/":
+            if (req.method == "GET"){
+            res.setHeader("content-type", "text/html");
+            const html = fs.readFileSync(path.join(__dirname, "./form.html"), "utf-8");
+            res.write(html);
+            res.end();
+            break;
 
-    fs.readFile(filePath, (err, content) => {
-
-        res.writeHead(200, {"content-type": "text/html"});
-        res.end(content);
-    });
+            }}
 });
+
 
 server.listen(4141, () => {
     log("Mi servidor está vivo corriendo en el puerto 4141");
