@@ -1,15 +1,49 @@
-let log = console.log;
-
-const http = require('http');
+const http = require("http");
 
 const server = http.createServer((req, res) => {
-    if(req.url === '/') {
-        res.setHeader("content-type", "text/html");
-        res.write(`URL Index /`);
-        res.end();
+    switch(req.url){
+        case "/":
+            res.setHeader("Content-Type", "text/html");
+            res.write("URL index /");
+            res.end();
+            break;
+        case "/test_json":
+            if(req.method == "GET"){
+                res.setHeader("Content-Type", "application/json");
+                res.write('{code: 200, msg:"Ok GET"}');
+                res.end();
+            }else if(req.method == "POST"){
+                res.setHeader("Content-Type", "application/json");
+                res.write('{code: 200, msg:"Ok POST"}');
+                res.end();
+            }    
+            break;        
+        case "/test_html":
+            res.setHeader('Content-Type', 'text/html');    
+            res.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="utf-8">
+                    <title>Código en HTML</title>
+                </head>
+                <body>
+                <h1>hola mundo desde node</h1>
+                </body>
+                </html>
+            `);
+            res.end();   
+            break;
+
+            default:
+                res.statusCode = 404;
+                res.setHeader('Content-Type', 'text/html');
+                res.write(`nothing's here :c`);
+                res.end();
+                break;
     }
 });
 
 server.listen(3001, () => {
-  console.log('Server is listening on port 3001');
+  console.log("Server is running on port 3001");
 });
