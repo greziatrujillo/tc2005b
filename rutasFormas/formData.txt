@@ -1,0 +1,3 @@
+{"nombre":"grezia","color":"rojo"}
+{"nombre":"grezia","color":"rojo"}
+{"nombre":"grezia","color":"rojo"}

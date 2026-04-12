@@ -31,6 +31,7 @@ const server = http.createServer((req, res) => {
                 res.write(html);
                 res.end();
                 
+                //upon post, the form data is moved to txt
             }else if(req.method == "POST"){
                 let body = [];
                 req
@@ -41,24 +42,39 @@ const server = http.createServer((req, res) => {
                     body = Buffer.concat(body).toString();
                     console.log(body)
 
-                    const indice = Number(body.split('&')[0].split('=')[1]);
-                    console.log(indice);
-                    const imprimir = body.split('&')[1].split('=')[1];
-                    console.log(imprimir);
+                    const nombre = body.split('&')[0].split('=')[1];
+                    console.log(nombre);
 
-                    for(var i = 1; i <= indice; i++){
-                        console.log(imprimir)
-                    }
+                    const color = body.split('&')[1].split('=')[1];
+                    console.log(color);
 
-                    res.setHeader('Content-Type', 'application/json');
-                    res.statusCode = 200;
-                    res.write('{code:200, msg:"Ok POST"}');
-                    res.end();
+                    const data = {
+                        nombre: nombre,
+                        color: color
+                    };
+
+                    const fs = require('fs');
+
+                    fs.appendFile('formData.txt', JSON.stringify(data) + '\n', (err) => {
+                        if (err) {
+                            console.error('Error writing to file:', err);
+                            res.statusCode = 500;
+                            res.write('{code:500, msg:"Internal Server Error"}');
+                        }
+                        else {
+                            console.log('Data written to file successfully');
+                            res.setHeader('Content-Type', 'application/json');
+                            res.statusCode = 200;
+                            res.write('{code:200, msg:"Ok POST"}');
+                        }
+                        //move the success msg and end inside callback to assure message AFTER txt is written
+                        res.end();
+                    }); 
+
                 });  
-
-
             }
             break;
+
         default:
             res.statusCode = 404;
             res.write('Nothing to see here :c');
