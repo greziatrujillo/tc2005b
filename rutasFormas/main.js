@@ -54,8 +54,11 @@ const server = http.createServer((req, res) => {
                     };
 
                     const fs = require('fs');
+                    const path = require('path');
 
-                    fs.appendFile('formData.txt', JSON.stringify(data) + '\n', (err) => {
+                    const filePath = path.join(__dirname, 'formData.txt');
+
+                    fs.appendFile(filePath, JSON.stringify(data) + '\n', (err) => {
                         if (err) {
                             console.error('Error writing to file:', err);
                             res.statusCode = 500;
