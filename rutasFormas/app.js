@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
                 <html lang="en">
                 <head>
                     <meta charset="utf-8">
-                    <title>Código en HTML</title>
+                    <title>CÃ³digo en HTML</title>
                 </head>
                 <body>
                 <h1>hola mundo desde node</h1>
@@ -34,27 +34,48 @@ const server = http.createServer((req, res) => {
             `);
             res.end();   
             break;
+        case "/form_method":
+            if(req.method == "GET"){
+                const path = require("path");
+                const fs = require("fs");
 
-            case "/form_method":
-                if(req.method == "GET"){
-                    const path = require("path");
-                    const fs = require("fs");
-
-                    res.setHeader('Content-Type', 'text/html');
-                    const html = fs.readFileSync(path.join(__dirname, "./form.html"), "utf-8");
-                    res.write(html);
-                    res.end();
-                }
-                else if(req.method == "POST"){
-                }
-                break;
-
-            default:
-                res.statusCode = 404;
                 res.setHeader('Content-Type', 'text/html');
-                res.write(`nothing's here :c`);
+                const html = fs.readFileSync(path.resolve(__dirname, "./form.html"), "utf-8");
+                res.write(html);
                 res.end();
-                break;
+                
+            }else if(req.method == "POST"){
+                let body = [];
+                req
+                .on('data', chunk => {
+                    body.push(chunk);
+                })
+                .on('end', () => {
+                    body = Buffer.concat(body).toString();
+                    console.log(body)
+
+                    const indice = Number(body.split('&')[0].split('=')[1]);
+                    console.log(indice);
+                    const imprimir = body.split('&')[1].split('=')[1];
+                    console.log(imprimir);
+
+                    for(var i = 1; i <= indice; i++){
+                        console.log(imprimir)
+                    }
+
+                    res.setHeader('Content-Type', 'application/json');
+                    res.statusCode = 200;
+                    res.write('{code:200, msg:"Ok POST"}');
+                    res.end();
+                });  
+
+
+            }
+            break;
+        default:
+            res.statusCode = 404;
+            res.end();
+            break;
     }
 });
 
