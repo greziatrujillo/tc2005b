@@ -42,6 +42,10 @@ app.get('/test_html', (request, response, next) => {
         </head>
         <body>
             <h1>hola mundo desde express</h1>
+            <br>
+            <h2>Describiendo el package.json</h2>
+            <p>Un package.json es el archivo que da toda la información necesaria en este caso del index.js.</p>
+            <p>Un package.json incluye el nombre de la aplicación, la version, una descripción breve,librerias necesarias y cualquier script necesario para facilitar procesos.</p>
         </body>
         </html>
     `);
