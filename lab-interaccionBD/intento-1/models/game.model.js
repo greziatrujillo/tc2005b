@@ -22,3 +22,11 @@ exports.fetchAll = async (page = 1, pageSize = 20) => {
     const { rows } = await pool.query(sql, [pageSize, offset]);
     return rows;
 };
+
+exports.findByTitle = async (titulo) => {
+    const sql = `SELECT id, title, release_year, price, rating
+                 FROM games WHERE title ILIKE $1
+                 ORDER BY title LIMIT 50`;
+    const { rows } = await pool.query(sql, [`%${titulo}%`]);
+    return rows;
+};
