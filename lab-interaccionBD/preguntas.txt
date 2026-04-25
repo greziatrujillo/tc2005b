@@ -1,0 +1,17 @@
+1. ¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?
+Al usar el modelo MVC, el SQL queda en el modelo, lo que lo hace fácil de mantener y se puede reutilizar sin tener que hacer la consulta en cad parte.
+
+2. ¿Qué es SQL injection y cómo se puede prevenir?
+SQL injection es donde alguna entidad maliciosa puede insertar SQL en cualquier entrada con fines de causar daños en la base de datos. Es una vulnerabilidad con la que se necesita mucho cuidado. Para prevenir, hay que tener consultas parametrizadas, es decir, consultas preparadas que se pueden reusar pero con diferentes datos.
+
+3. ¿Por qué en la práctica las credenciales de Supabase viven en un archivo .env y no directamente en database.js? Menciona al menos dos consecuencias concretas (no teóricas) de haberlas escrito en el código y haber hecho commit.
+Tener las credenciales de Supabase en un .env permite la seguridad, ya que es de suma importancia limitar el acceso cualquiera a la base de datos. Como el .env se incluye en el .gitignore, so se sube al repositorio. En el archivo database.js se usa el URL de supabase, pero se incluye que viene de un .env, por lo que no es accesible a los usuarios aunque usemos ese archivo en nuestro programa. Asímismo, se usa en el archivo game.model.js, el cual se conecta a database.js. Se hacen las queries del título por no hay acceso a la base de datos. 
+
+4. ¿Qué problema resuelve usar un pool de conexiones en lugar de abrir y cerrar una conexión nueva en cada request?
+Al seguir abriendo conexiones con cada query, las conexiones se saturan y puede causar problemas con el tiempo, donde la aplicación se puede ver con un rendimiento pobre. Al tener un pool, se tiene una conexión que está abierta para el acceso rápido de las queries. 
+
+5. En la práctica usaste pool.query(sql, [valor1, valor2]) con placeholders $1, $2 en lugar de armar el query concatenando strings. Muestra un ejemplo corto de un query inseguro y su versión parametrizada, y explica en 2–3 líneas por qué el segundo bloquea una inyección como ' OR 1=1 --.
+QUERY INSEGURO: "SELECT * FROM operaciones WHERE tipo = "+ factoraje +""
+QUERY SEGURO: "SELECT * FROM usuarios WHERE tipo = $1"
+
+El query seguro justamente es seguro porque se usa el placeholder para que cualquier valor insertado será interpretado como un string literal. Es decir, si un usuario inyecta 1=1 la base va a buscar un string que sea igual a 1=1 (por lo que no va encontrar porque normalmente no es un dato que se guarda).
