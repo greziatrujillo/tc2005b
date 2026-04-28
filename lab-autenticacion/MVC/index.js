@@ -21,13 +21,13 @@ app.use(session({
 }));
 
 const helmet = require('helmet');
-app.use(helmet({ 
+app.use(helmet());
+/*{ 
         contentSecurityPolicy: {
             directives: {
                 "script-src": ["self", "https://cdn.jsdelivr.net",]}
             }
-        }));
-
+        }*/
 
 app.get('/', (request, response, next) => {
     response.setHeader('Content-Type', 'text/plain');
@@ -41,6 +41,7 @@ app.get("/test_ejs", (request, response, next) => {
 
 const rutasUsuarios = require('./routes/usuarios.routes');
 app.use('/usuarios', rutasUsuarios);
+
 
 /*COOKIES */
 app.get('/test_cookie', (request, response, next) => {
@@ -90,8 +91,6 @@ app.get('/test_db', async (request, response, next) => {
         console.log(e)
     }
 });
-
-
 
 const server = http.createServer((request, response) => {
     console.log(request.url);
