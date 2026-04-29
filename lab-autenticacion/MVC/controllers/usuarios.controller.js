@@ -17,13 +17,20 @@ module.exports.do_login = async(req,res) =>{
             return res.redirect('/usuarios/login');
         }
 
+
         const doMatch = await bcrypt.compare(req.body.password, usuario.password);
         if (!doMatch) {
             return res.redirect('/usuarios/login');
         }
 
+        // ──── NUEVO: cargar permisos del usuario ────
+        const permisos = await model.User.getPermisos(usuario.username);
+
         req.session.username   = usuario.username;
         req.session.isLoggedIn = true;
+        //se entrega permisos a la sesion
+        req.session.permisos   = permisos; // array de strings
+        console.log('Permisos del usuario:', permisos);
         res.redirect('/usuarios/logged');
 
     } catch (e) {

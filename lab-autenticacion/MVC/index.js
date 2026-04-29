@@ -42,6 +42,8 @@ app.get("/test_ejs", (request, response, next) => {
 const rutasUsuarios = require('./routes/usuarios.routes');
 app.use('/usuarios', rutasUsuarios);
 
+const notasRoutes = require('./routes/notas.routes.js');
+app.use('/notas', notasRoutes);
 
 /*COOKIES */
 app.get('/test_cookie', (request, response, next) => {
