@@ -1,0 +1,6 @@
+1¿En qué consiste el control de acceso basado en roles?
+Igual a como se escucha, es literal donde se crean roles, y cada rol tiene sus permisos. Los usuarios creados son asignados sus respectivos roles para tener sus respectivos permisos. Con esto, la redundancia de darle sus funcionalidades a cada usuario se consolida en un rol.
+
+
+2Investiguen y describan 2 sistemas, uno que aplique RBAC y uno que no. Realicen un análisis de las ventajas y desventajas de cada uno con respecto al control de acceso.
+
