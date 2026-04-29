@@ -1,6 +1,18 @@
-1¿En qué consiste el control de acceso basado en roles?
+***** toda la programación de este laboratorio se lleva acabo en los archivos de lab-autenticacion, ya que se trabajó con el programa establecido y se trabajó sobre todo ese material. Hay nuevos archivos como todo con el nombre nota, que pertenece al lab-rbac.
+
+1) ¿En qué consiste el control de acceso basado en roles?
 Igual a como se escucha, es literal donde se crean roles, y cada rol tiene sus permisos. Los usuarios creados son asignados sus respectivos roles para tener sus respectivos permisos. Con esto, la redundancia de darle sus funcionalidades a cada usuario se consolida en un rol.
 
 
-2Investiguen y describan 2 sistemas, uno que aplique RBAC y uno que no. Realicen un análisis de las ventajas y desventajas de cada uno con respecto al control de acceso.
+2) Investiguen y describan 2 sistemas, uno que aplique RBAC y uno que no. Realicen un análisis de las ventajas y desventajas de cada uno con respecto al control de acceso.
+
+RBAC: Canvas, la plataforma común para instituciones que permite impartir cursos y sus trabajos o material relacionado. Esta aplicación tiene varios usuarios, como los de un estudiante (puede ver el material, entregar, etc pero NO puede editar el material del curso), profesor (administrador del curso), admin (gestión de usuarios, roles y plataforma), TA (como el profesor, pero con permisos controlados) y entre otros roles similares.
+
+https://community.instructure.com/en/kb/articles/661567-what-user-roles-and-permissions-are-available-in-canvas
+
+NO RBAC: Ejemplo muy común, una página de HTML que yo puedo crear y subir a GitHub, donde en GitHub pages se puede dar de alta con su dominio. Cualquier persona puede acceder, pero en realidad todos tienen los permisos, que es observar la página y tal vez navegar. Nadie puede editar o modificar o tiene otras funcionalidades.
+
+Las ventajas al tener RBAC en un aplicación permite que varios usuarios puedan entrar a una plataforma única y completar sus tares dependiendo del rol. Por ejemplo, con Canvas, un estudiante y un profesor no tiene que acceder por plataforma distinta, sino que entran por el mismo login, pero dado su rol, los lleva a su vista con permisos respectivos. Asimismo, la seguridad en una aplicación es mejorada con RBAC, ya que controla el acceso a datos y accesibilidad. 
+
+En cuanto a desventajas, este método puede ser complejo en implementar considerando las jerarquías, permisos e integración de todo esto. Hay monitoreo constante del administrador, lo que toma mucho tiempo y recursos. Además, hay situaciones en donde los permisos se pueden empalmar o no están bien definidos, o puede ver personal en roles que necesitan acceso específico a ciertos permisos de un rol más alto, por lo que todo esto puede causar problemas.
 
