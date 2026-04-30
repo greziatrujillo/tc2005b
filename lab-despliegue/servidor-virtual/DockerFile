@@ -28,6 +28,7 @@ RUN useradd -m -s /bin/bash estudiante \
 USER estudiante
 WORKDIR /home/estudiante
 
+
 # Volver a root para los pasos finales del Dockerfile
 USER root
 
