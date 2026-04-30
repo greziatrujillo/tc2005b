@@ -1,9 +1,22 @@
 1) ¿Que elementos hay que configurar para un entorno de produccion?
+Para poder configurar se necesita un servidor, npm/PM2 y buena organización de archivos de manera que sea óptimo.
 
 2) ¿Que variables de entorno tienes que crear en tu proyecto?
+Se tiene que identificar el puerto de donde se accede al servidor, conexión SSL para asegurar conexión segura y un .env para poder conectar con la base de datos.
 
 3) Investiga los tipos de DNS y explícalos
+Tipos de DNS son servidores DNS y registros DNS. Los servidores son las estructuras físicas que almacenan las IPs asociadas con sus registros DNS (ya sea el nombre de dominio, alias de ese nombre, email, etc..).
+https://www.godaddy.com/resources/br/artigos/tipos-de-dns
 
 4) ¿Qué significa para un dominio cambiar el registro NS a diferencia de los demás?
+Un registro NS redirigen las consultas al lugar de almacenamiento para que pueden acceder a ellas. Al cambiar el registro, se tiene que cambiar la gestión de los datos  tiene que cambiar ya que puede ser dirigido de manera diferente y al no modificar correctamente puede ser redirigido de manera incorrecta.
+https://powerdmarc.com/es/what-is-dns-ns-record-name-server-records/
+
 
 5) Investiga los pros y contras de los certificados SSL gratuitos contra los de pago ¿Qué ventajas y desventajas otorgan? ¿Para cuando se recomendaría usar uno de pago ho en día?
+
+SSL gratuito: Aparte de que es gratis este certificado, el beneficio de que solo da un dominio puede ser buena idea para alguien que no necesita mucho de una certificación SSL, solo lo básico. Sin embargo, la duración tiende ser muy corta, por lo que se tiene que revalidar constantemente.
+
+SSL pagado: Al pagar una de estas certificaciones, el tiempo puede ser hasta un año o más, por lo que no se requiere tanta revalidación. Tienen costos que pueden variar, pero por lo regular tienen más seguridad. Normalmente, estos certificados pagados se usan para cumplir con requisitos legales o para empresas muy grandes que deben validar que son el sitio real.
+https://dev.to/daniel_williams_4cf14d76f/free-vs-paid-ssl-certificates-whats-the-difference-1nlp
+
