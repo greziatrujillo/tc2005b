@@ -1,0 +1,9 @@
+1) ¿Que elementos hay que configurar para un entorno de produccion?
+
+2) ¿Que variables de entorno tienes que crear en tu proyecto?
+
+3) Investiga los tipos de DNS y explícalos
+
+4) ¿Qué significa para un dominio cambiar el registro NS a diferencia de los demás?
+
+5) Investiga los pros y contras de los certificados SSL gratuitos contra los de pago ¿Qué ventajas y desventajas otorgan? ¿Para cuando se recomendaría usar uno de pago ho en día?
