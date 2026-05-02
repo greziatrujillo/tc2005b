@@ -4,4 +4,4 @@ This repository is to demonstrate the use of branches and simplified gitflow. It
 
 <br>
 
-Each laboratory will be worked on in its own branch and later pulled into the development branch once it is completed (if necesarry).
+Each laboratory will be worked on in its own folder within the <i>labs</i> branch, which will all later be pulled into the development branch once it is completed (if necesarry).
