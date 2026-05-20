@@ -18,6 +18,11 @@ const BASE_SPAWN_INTERVAL = 0.9;
 const DASH_HEIGHT = 28;
 const DASH_GAP = 24;
 
+//score animation
+let milestone = 0;
+let scoreWave = 0;
+const WAVE_DURATION = 0.5; 
+
 // Convierte un índice de carril (0..3) a la coord X del centro del auto
 function laneToX(lane){
     return lane * LANE_WIDTH + (LANE_WIDTH - CAR_WIDTH) / 2;
@@ -47,6 +52,10 @@ window.addEventListener("keydown", (e) => {
         gameOver = false;
         score = 0;
         player.lane = 1; // reiniciar posición del jugador
+
+        //reset milestone tracker and timer
+        milestone = 0;
+        scoreWave = 0;
     }
 });
 
@@ -88,6 +97,18 @@ function update(dt){
     if(gameOver) return;
 
     score += dt * 100; // 100 puntos por segundo
+
+    //animation timer decrease once it starts
+    if (scoreWave > 0) {
+        scoreWave -= dt;
+    }
+
+    //calculate current milestone
+    let currentMilestone = Math.floor(score / 1000) * 1000;
+    if (currentMilestone > milestone) {
+        scoreWave = WAVE_DURATION;
+        milestone = currentMilestone; 
+    }
 
     // tope para no romper el juego aumentando la velocidad infinitamente
     roadSpeed = BASE_ROAD_SPEED + Math.min(score / 4, 320); 
@@ -164,9 +185,16 @@ function render(){
 
     // Score
     ctx.fillStyle = '#00ffaa';
-    ctx.font = 'bold 16px "Courier New", monospace';
     ctx.textAlign = 'left';
-    ctx.fillText('SCORE: ' + Math.floor(score), 10, 24);
+    let scoreText = 16;
+
+    if (scoreWave > 0){
+        let time = scoreWave / WAVE_DURATION;
+        let wave = 1 + Math.sin(time * Math.PI) * 2; //smooth wave movement
+        scoreText = Math.floor(16*wave);
+    }
+    ctx.font = 'bold' + scoreText + 'px "Courier New", monospace';
+    ctx.fillText('SCORE: ' + Math.floor(score), 10, 24 + scoreText);
 
     // Indicador de velocidad en la esq. superior derecha
     ctx.fillStyle = "#888";
